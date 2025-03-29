@@ -47,7 +47,7 @@ public static partial class TextFormatter
             return string.Empty;
         }
 
-        return PascalizeRegex().Replace(s.Trim(), match => match.Groups[1].Value.ToUpper());
+        return PascalizeRegex().Replace(s.Trim(), match => match.Groups[1].Value.ToUpperInvariant());
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ public static partial class TextFormatter
         }
 
         return string.Concat(
-            word.Substring(0, 1).ToLower(),
+            word.Substring(0, 1).ToLowerInvariant(),
             word.AsSpan(1)
             );
     }
